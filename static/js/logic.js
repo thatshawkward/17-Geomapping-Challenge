@@ -270,5 +270,6 @@ d3.json(fault_line_url, function (data) {
             });
             faultlineLayer.addLayer(layer);
         }
+      
     });
 });
