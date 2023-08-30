@@ -253,23 +253,34 @@ d3.json(API_quakes).then((geojsonData) => {
 // Create layer for fault lines
 var faultlineLayer = L.layerGroup();
 
-d3.json(fault_line_url, function (data) {
-    var mystyle = {
-        "color": "#ff7800",
-        "weight": 4,
-        "opacity": 0.9
-    };
+// Initialize the Map
+var myMap = L.map("map", {
+  center: [15.5994, -28.6731],
+  zoom: 3
+});
 
-    L.geoJSON(data, {
-        style: mystyle,
-        onEachFeature: function (feature, layer) {
-            layer.bindPopup("<h3><u>plate name</u>: " + feature.properties.Name + "</h3>");
-            layer.on({
-                "mouseover": highlightFeature,
-                "mouseout": resetFeature
-            });
-            faultlineLayer.addLayer(layer);
-        }
-      
-    });
+// Add Tile Layer
+L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={API_KEY}", {
+  maxZoom: 18,
+  id: "mapbox/streets-v11",
+  API_KEY: "YOUR_MAPBOX_API_KEY"
+}).addTo(myMap);
+
+// Fetch Earthquake Data
+d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson").then(function(data) {
+  // ... your existing code to handle earthquake data
+});
+
+// Fetch Fault Lines Data
+d3.json("/17-Geomapping-Challenge\tectonicplates-master\GeoJSON.json").then(function(faultData) {
+  L.geoJSON(faultData, {
+    style: function() {
+      return {
+        color: "orange",
+        weight: 2
+      };
+    }
+  }).addTo(myMap);
+});
+
 });
