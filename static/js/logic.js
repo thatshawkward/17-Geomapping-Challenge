@@ -254,7 +254,7 @@ d3.json(API_quakes).then((geojsonData) => {
 var faultlineLayer = L.layerGroup();
 
 // Fetch Fault Lines Data
-d3.json("\17-Geomapping-Challenge\tectonicplates-master\GeoJSON.json").then(function(faultData) {
+d3.json("\tectonicplates-master\GeoJSON.json").then(function(faultData) {
   L.geoJSON(faultData, {
     style: function() {
       return {
