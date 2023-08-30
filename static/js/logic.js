@@ -38,29 +38,32 @@ function createMap(quakeLayers, timelineLayer,faultlineLayer, legend) {
         subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
     });
 
-  // Create a map using the lightMap tile layer and the earthquake layers (quakeLayers).
-  var myMap = L.map("map-id", {
-      center: [36.77, -119.41],
-      zoom: 6,
-      layers: [lightMap, faultlineLayer].concat(d3.values(quakeLayers))
-      // layers: [lightMap,quakeLayers]
-  });
+ // Create a map using the lightMap tile layer and the earthquake layers (quakeLayers).
+var myMap = L.map("map-id", {
+    center: [36.77, -119.41],
+    zoom: 6,
+    layers: [lightMap, faultlineLayer].concat(d3.values(quakeLayers))
+});
 
-  // Create a baseMaps object to hold the tile layers (lightMap & tlMap).
-  var baseMaps = {
-      "Street Map": streemap,
-      "Satellite Map": satmap,
-      "Google Map":googleTerrain,
-      "Light Map": lightMap,
-      "Timeline": tlMap
-  };
+// Create a baseMaps object to hold the tile layers (lightMap & tlMap).
+var baseMaps = {
+    "Street Map": streemap,
+    "Satellite Map": satmap,
+    "Google Map": googleTerrain,
+    "Light Map": lightMap,
+    "Timeline": tlMap
+};
 
-  //    Tring to add faultlineLayer
-  //    Create an overlayMaps object here to contain the "Earthquake" and "Fault Line" layers
-  //    var overlayMaps = {
-  //     "Earthquake": quakeLayers,
-  //     "Fault Line": faultlineLayer
-  // };
+// Create an overlayMaps object here to contain the "Earthquake" and "Fault Line" layers
+var overlayMaps = {
+    "Fault Line": faultlineLayer
+};
+
+// Create the layer control and add it to the map
+//include both baseMaps and overlayMaps in the control
+var layersControl = L.control.layers(baseMaps, Object.assign({}, quakeLayers, overlayMaps), {
+    collapsed: false
+}).addTo(myMap);
 
   // Create a timeline control.
   var timelineControl = L.timelineSliderControl({
@@ -269,6 +272,3 @@ d3.json(fault_line_url, function (data) {
         }
     });
 });
-
-
-
