@@ -1,6 +1,6 @@
-# USC Homework-14 GeoMapping
-**GeoMapping** homework for USC Data Analytics Bootcamp  
-The github repo for this code is located [here][1].
+
+### This is the information provided by Trilogy Education Services as the basis for the project.
+## Unit 17 | Visualizing Data with Leaflet
 
 ### Important points:
 
@@ -21,8 +21,6 @@ The github repo for this code is located [here][1].
 	- available on the Leaflet [home page](https://leafletjs.com "leafletjs.com"), under the 'Plugins, Time & elevation' selections. Source code [here](https://github.com/skeate/Leaflet.timeline).
 
 
-
-
 ### Useful Resources
 L controls tutorial [click here!][3]
 
@@ -30,8 +28,6 @@ L controls tutorial [click here!][3]
 [3]: https://www.mapbox.com.
 [4]: https://usabilityetc.com/2016/06/how-to-create-leaflet-plugins/
 
-### This is the information provided by Trilogy Education Services as the basis for the project.
-## Unit 17 | Visualizing Data with Leaflet
 
 ### Background
 
@@ -96,12 +92,3 @@ Final product assessed on the following metrics:
 * Visual appearance
 
 * Professionalism
-
-
-## Copyright
-This selection of code is displayed by to Warren Ross @ [this GitHub][1].  
-The content was derived from an assignment distributed by USC Data Analytics Bootcamp and Trilogy Education Services. Copyright anotated below:
-
-Data Boot Camp (C) 2018. All Rights Reserved.  
-
-[1]: https://github.com/RandallPark/USC_Homework-10_WebScraping "my repo"
